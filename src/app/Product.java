@@ -7,7 +7,7 @@ public class Product {
     private final double weight;
     private final double prise;
 
-    public Product(String name, double weight) {
+    public Product(String name, double weight, double prise) {
         this.name = name;
         this.weight = weight;
         this.prise = prise;

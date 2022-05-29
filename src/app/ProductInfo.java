@@ -13,7 +13,6 @@ public class ProductInfo {
     static private final String MEASURE = "kg";
     static double prise;
     static double totalPrise;
-    static String totalPriseRounded;
 
 
     public static void main(String[] args) {
@@ -29,7 +28,7 @@ public class ProductInfo {
         weight = scanner.nextDouble();
         System.out.print("Product quantity (pcs.): ");
         quantity = scanner.nextInt();
-        System.out.print("Pruduct prise: ");
+        System.out.print("Pruduct price per kg: ");
         prise = scanner.nextDouble();
         scanner.close();
     }
@@ -44,21 +43,20 @@ public class ProductInfo {
         totalWeightRounded = getTotalWeightRounded(totalWeight);
 
         totalPrise = getTotalPrise(product.getPrise());
-        totalPriseRounded = getTotalPriseRonded(totalPrise);
 
         return "------------------------\n" +
                 "Product total weight " + name + " (" + MEASURE + "): "
-                + totalWeightRounded + totalPriseRounded;
+                + totalWeightRounded +
+                "\n" +
+                "Product total prise " + totalPrise;
 
     }
     // Метод рассчета Общей цены.
-    static private double getTotalPrise(double prise, int quantity) { return  prise * quantity;}
+    static private double getTotalPrise(double prise) { return  prise * weight;}
     // Метод рассчета общего веса.
     static private double getTotalWeight(double weight, int quantity) {
         return weight * quantity;
     }
-    // Метод округления Общей цены.
-    static private double getTotalPriseRonded(double totalPrise) { return Prise.rounderPrise(totalPrise);}
     // Метод округления общего веса.
     static private String getTotalWeightRounded(double totalWeight) {
         return Rounder.roundWeight(totalWeight);
